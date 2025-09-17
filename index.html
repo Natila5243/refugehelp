@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refugee Support Hub</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background-image 1s ease-in-out;
+    color: white;
+  }
+
+  /* Dark overlay for better text readability */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: -1;
+  }
+
+  .language-switcher {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 10;
+  }
+
+  .language-switcher select {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+
+  h1, h2, p {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+  }
+
+  .card {
+    background: rgba(255,255,255,0.9);
+    color: black;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  .footer {
+    
+    background: rgba(30, 30, 30, 0.5);
+    
+    padding: 20px;
+    font-size: 20px;
+    backdrop-filter: blur(8px) saturate(180%);
+    -webkit-backdrop-filter: blur(8px) saturate(180%);
+    /* border-radius: 15px 15px 0 0; */
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+  .fotrer{
+    text-align: center;
+    color: white;
+  }
+  .continer ul {
+            display: flex;
+            justify-content: right;
+            list-style: none;
+            gap: 20px;
+        }
+        .fa-envelope{
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: none;
+        }
+        .fa-envelope:hover{
+            font-size: 2.5em;
+            color: rgb(114, 110, 110);
+        }
+        .fa-square-whatsapp{
+            font-size: 2em;
+            color: rgb(62, 252, 62);
+            cursor: pointer;
+            /* background-color: transparent;
+            background: none !important;
+            border-radius: 10px;
+            width: 43px;
+            height: 35px;
+            padding-top: -10px; */
+
+        }
+        .fa-square-whatsapp:hover{
+            font-size: 2.5em;
+            color: rgb(146, 250, 146);
+        }
+        .fa-facebook{
+            font-size: 2em;
+            color: blue;
+            /* border-radius: 50px;
+            width: 48px; */
+        }
+        .fa-facebook:hover{
+            font-size: 2.5em;
+            color: rgb(128, 128, 243);
+        }
+        .fa-square-instagram{
+            font-size: 2em;
+            color: rgb(252, 106, 130);
+        }
+        .fa-square-instagram:hover{
+            font-size: 2.5em;
+            color: pink;
+        }
+  
+  #resourceCards a{
+    background-color: rgb(199, 198, 198);
+    padding: 5px;
+    border-radius: 5px;
+    color: black;
+    text-decoration: none;
+    margin-left: 10px;
+    font-weight: 5px;
+  }
+  #resourceCards a:hover{
+    padding: 8px;
+    color: rgb(41, 41, 250);
+    background-color: rgb(204, 200, 200);
+    text-decoration: underline;
+  }
+  .refug-network_icon{
+    border-radius: 70px;
+    border: 1px solid black;
+  }
+  .inpiring-girls_icon{
+    border-radius: 40px;
+  }
+  #header  ul {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 20px;
+    list-style: none;
+    
+
+    background: rgba(8, 8, 8, 0.5);
+    color: white;
+    padding: 30px;
+    font-size: 20px;
+    backdrop-filter: blur(8px) saturate(180%);
+    -webkit-backdrop-filter: blur(8px) saturate(180%);
+    /* border-radius: 15px 15px 0 0; */
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+  #header li{
+    background-color: white;
+    color: black;
+    padding: 4px;
+    border-radius: 5px;
+  }
+  #header li:hover{
+    padding: 8px;
+    text-decoration: underline;
+    color: rgb(182, 181, 181);
+  }
+  #countrt-flages{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  /* #countrt-flages img title{
+    background-color: black;
+    color: red;
+  } */
+  #countrt-flages img:hover{
+    padding: 10px;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div id="header">
+      <nav>
+        <ul>
+          <li>Home page</li>
+          <li>About us</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<!-- Language Switcher -->
+<div class="language-switcher">
+  <select id="languageSelect">
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+    <option value="ar">العربية</option>
+    <option value="sw">Kiswahili</option>
+    <option value="ti">ትግርኛ(Tigrigna)</option>
+    <option value="am">አማርኛ(Amharic)</option>
+    <option value="so">Af-somali(somali)</option>
+  </select>
+</div>
+
+<!-- Main Heading -->
+<div class="container text-center py-5">
+  <h1 id="mainTitle">Welcome to the Refugee Support Hub</h1>
+  <p id="mainDesc">Connecting refugees with vital resources, services, and community support worldwide.</p>
+</div>
+
+<div id="countrt-flages">
+      <img src="./eritrean falage.jpeg" alt="" width="100" height="80" title="Eritrea">
+      <img src="./DRC flage.webp" alt="" width="100" height="80" title="DRC">
+      <img src="./ethiopian falge.svg" alt="" width="100" height="80" title="Ethiopia">
+      <img src="./Flag_of_Rwanda.svg" alt="" width="120" height="80" title="Rwanda">
+      <img src="./sudan flage.jpeg" alt="" width="100" height="80" title="Sudan">
+      <img src="./south sudan flaghe.jpeg" alt="" width="100" height="80" title="South Sudan">
+      <img src="./somali flage.jpeg" alt="" width="100" height="80" title="Somali">
+      <img src="./Flag-Burundi.webp" alt="" width="100" height="80" title="Burundi">
+    </div>
+
+<!-- Resource Categories -->
+<section id="resources" class="container py-5">
+  <div class="text-center mb-4">
+    <h2 id="findHelpTitle">Find Help</h2>
+    <p id="findHelpDesc">Choose a category to get started</p>
+  </div>
+  
+    
+
+    <!-- ...existing resource cards... -->
+    <div class="row g-4" id="resourceCards">
+      
+      <div class="col-md-4 resource-card" data-category="Legal Aid">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <i class="fas fa-gavel fa-2x mb-3 text-danger"></i>
+            <h5 class="card-title">Legal Aid</h5>
+            <p class="card-text"> <a href="./asaylumb2.html" class="a1">Asylum guidance</a> <a href="./docb2.html" class="a1-2">documentation</a></p>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 resource-card" data-category="Education">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <i class="fas fa-school fa-2x mb-3 text-success"></i>
+            <h5 class="card-title">Education</h5>
+             <p class="card-text"><a href="./educationb2.html">Language</a><a href="./ict.htm" class="a2-2">ICT</a> </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 resource-card" data-category="Refuges Network">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <!-- <i class="fas fa-hospital fa-2x mb-3 text-primary"></i> -->
+             <img class="refug-network_icon" src="./refuge network.webp" width="80" height="80" alt="">
+            <h5 class="card-title">Refuges Network</h5>
+            <p class="card-text"><a href="./storieb2.html" class="a3">Story Sharing And Skills</a> 
+              <!-- <a href="./storieb2.html" class="a3-2">Skills</a> -->
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 resource-card" data-category="Inpairing Girls">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <img class="inpiring-girls_icon" src="./inpairing image.png" width="80" height="80" alt="">
+            <!-- <i class="fas fa-hospital fa-2x mb-3 text-primary"></i> -->
+            <h5 class="card-title">Inpairing Girls</h5>
+            <p class="card-text"><a href="#" class="a4">mental health support</a> <a href="#" class="a4-2">emergency care</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- <script src="./language-switcher.js"></script> -->
+
+<script>
+  // Background Images (real refugee-related images)
+  const images = [
+    "https://images.unsplash.com/photo-1509099836639-18ba1795216d",
+    //"https://images.unsplash.com/photo-1523475496153-3d6cc450b1f5",
+    //"https://images.unsplash.com/photo-1601582587271-1f1e1c6d78d2",
+    //"https://images.unsplash.com/photo-1519681393784-d120267933ba"
+  ];
+
+  let currentImageIndex = 0;
+  function changeBackground() {
+    document.body.style.backgroundImage = `url(${images[currentImageIndex]})`;
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+  }
+  setInterval(changeBackground, 5000);
+  changeBackground();
+
+  // Translations
+  const translations = {
+    en: {
+      mainTitle: "Welcome to the Refugee Support Hub",
+      mainDesc: "Connecting refugees with vital resources, services, and community support worldwide.",
+      findHelpTitle: "Find Help",
+      findHelpDesc: "Choose a category to get started",
+      healthTitle: "Health Services",
+      healthDesc: "Clinics, mental health support, emergency care.",
+      legalTitle: "Legal Aid",
+      legalDesc: "Asylum guidance, documentation, rights education.",
+      eduTitle: "Education",
+      eduDesc: "School enrollment, language classes, scholarships."
+    },
+    fr: {
+      mainTitle: "Bienvenue au Centre de Soutien aux Réfugiés",
+      mainDesc: "Connecter les réfugiés aux ressources vitales, services et soutien communautaire dans le monde entier.",
+      findHelpTitle: "Trouvez de l'aide",
+      findHelpDesc: "Choisissez une catégorie pour commencer",
+      healthTitle: "Services de santé",
+      healthDesc: "Cliniques, soutien en santé mentale, soins d'urgence.",
+      legalTitle: "Aide juridique",
+      legalDesc: "Orientation sur l'asile, documentation, éducation aux droits.",
+      eduTitle: "Éducation",
+      eduDesc: "Inscription scolaire, cours de langue, bourses."
+    },
+    ar: {
+      mainTitle: "مرحبًا بكم في مركز دعم اللاجئين",
+      mainDesc: "ربط اللاجئين بالموارد والخدمات والدعم المجتمعي الحيوي حول العالم.",
+      findHelpTitle: "ابحث عن المساعدة",
+      findHelpDesc: "اختر فئة للبدء",
+      healthTitle: "الخدمات الصحية",
+      healthDesc: "عيادات، دعم الصحة النفسية، الرعاية الطارئة.",
+      legalTitle: "المساعدة القانونية",
+      legalDesc: "إرشادات اللجوء، الوثائق، التثقيف بالحقوق.",
+      eduTitle: "التعليم",
+      eduDesc: "التحاق بالمدارس، دروس لغة، منح دراسية."
+    },
+    sw: {
+      mainTitle: "Karibu kwenye Kituo cha Usaidizi wa Wakimbizi",
+      mainDesc: "Kuunganisha wakimbizi na rasilimali muhimu, huduma, na msaada wa jamii duniani kote.",
+      findHelpTitle: "Pata Msaada",
+      findHelpDesc: "Chagua aina ya huduma kuanza",
+      healthTitle: "Huduma za Afya",
+      healthDesc: "Vituo vya afya, msaada wa afya ya akili, huduma za dharura.",
+      legalTitle: "Msaada wa Kisheria",
+      legalDesc: "Mwongozo wa hifadhi, hati, elimu ya haki.",
+      eduTitle: "Elimu",
+      eduDesc: "Usajili wa shule, masomo ya lugha, ufadhili wa masomo."
+    },
+    am: {
+      mainTitle: "ወደ ድጋፍ ማዕከል እንኳን ደህና መጡ",
+      mainDesc: "የመጠጥ ጉዳይ ያላቸውን ሰዎች ከአለም ዙሪያ አስፈላጊ ምንጮች፣ አገልግሎቶችና የማህበረሰብ ድጋፍ ማድረግ.",
+      findHelpTitle: "እርዳታ ፈልጉ",
+      findHelpDesc: "ለመጀመር ምድብ ይምረጡ",
+      healthTitle: "የጤና አገልግሎቶች",
+      healthDesc: "ክሊኒኮች፣ የአእምሮ ጤና ድጋፍ፣ አደጋ ጊዜ እንክብካቤ.",
+      legalTitle: "የህግ እርዳታ",
+      legalDesc: "የመጠጥ መመሪያ፣ ሰነዶች፣ የመብት ትምህርት.",
+      eduTitle: "ትምህርት",
+      eduDesc: "የትምህርት ቤት መመዝገብ፣ የቋንቋ ክፍሎች፣ ስኮላርሺፖች."
+    },
+    so: {
+      mainTitle: "Ku soo dhawoow Xarunta Taageerada Qaxootiga",
+      mainDesc: "Isku xirka qaxootiga iyo ilo muhiim ah, adeegyo, iyo taageero bulsho oo caalami ah.",
+      findHelpTitle: "Hel Caawimaad",
+      findHelpDesc: "Dooro qayb si aad u bilowdo",
+      healthTitle: "Adeegyada Caafimaadka",
+      healthDesc: "Isbitaallo, taageero caafimaadka maskaxda, daryeel degdeg ah.",
+      legalTitle: "Caawimaad Sharci",
+      legalDesc: "Tilmaamaha magangelyada, dukumentiyada, wacyigelinta xuquuqda.",
+      eduTitle: "Waxbarasho",
+      eduDesc: "Diiwaangelinta dugsiga, fasallada luqadda, deeqaha waxbarasho."
+    },
+      ti: {
+        mainTitle: "እንኳን ብደሓን መጻእኩም ናብ መደበ ድጋፍ ስደተኛታት",
+        mainDesc: "ስደተኛታት ኣብ ዓለም ኣብ ኣስፋፋሊ ሓገዝ፣ ኣገልግሎታትን ድጋፍ ህብረትን ምግናእ።",
+        findHelpTitle: "ሓገዝ ምረፅ",
+        findHelpDesc: "ምርጫ ኣድሊ ንመጀመር",
+        healthTitle: "ጥዕና ኣገልግሎታት",
+        healthDesc: "ክሊኒካ፣ ድጋፍ ስነ ልቦና፣ ናይ ቅንጻ ህክምና",
+        legalTitle: "ሕጋዊ ድጋፍ",
+        legalDesc: "መመርሒ ስደተኛ፣ ሰነዳት፣ ስርዓት መምህርቲ ሓበሬታ",
+        eduTitle: "ትምህርቲ",
+        eduDesc: "መዝገብ ት/ቤት፣ ቋንቋ ትምህርቲ፣ መንበር ኣገልግሎታት"
+      }
+  };
+
+  document.getElementById('languageSelect').addEventListener('change', function() {
+    const lang = this.value;
+    // Update main headings and descriptions
+    for (const id in translations[lang]) {
+      const el = document.getElementById(id);
+      if (el) el.innerText = translations[lang][id];
+    }
+
+
+    // Update resource cards (only titles and anchor text, not structure)
+    const cardTranslations = {
+      en: [
+        {title: 'Legal Aid', links: ['Asylum guidance', 'documentation']},
+        {title: 'Education', links: ['Language', 'ICT']},
+        {title: 'Refuges Network', links: ['Story Sharing', 'Skills']},
+        {title: 'Inpairing Girls', links: ['mental health support', 'emergency care']}
+      ],
+      fr: [
+        {title: 'Aide juridique', links: ["Orientation sur l'asile", 'documentation']},
+        {title: 'Éducation', links: ['Langue', 'TIC']},
+        {title: 'Réseau des réfugiés', links: ['Partage d’histoires', 'compétences']},
+        {title: 'Autonomisation des filles', links: ['soutien en santé mentale', 'soins d’urgence']}
+      ],
+      ar: [
+        {title: 'المساعدة القانونية', links: ['إرشادات اللجوء', 'الوثائق']},
+        {title: 'التعليم', links: ['دروس لغة', 'تكنولوجيا المعلومات']},
+        {title: 'شبكة اللاجئين', links: ['مشاركة القصص', 'المهارات']},
+        {title: 'تمكين الفتيات', links: ['دعم الصحة النفسية', 'الرعاية الطارئة']}
+      ],
+      sw: [
+        {title: 'Msaada wa Kisheria', links: ['Mwongozo wa hifadhi', 'hati']},
+        {title: 'Elimu', links: ['Masomo ya lugha', 'ICT']},
+        {title: 'Mtandao wa Wakimbizi', links: ['Kushiriki hadithi', 'ujuzi']},
+        {title: 'Kuimarisha Wasichana', links: ['msaada wa afya ya akili', 'huduma za dharura']}
+      ],
+      ti: [
+        {title: 'ሕጋዊ ድጋፍ', links: ['መመርሒ ስደተኛ', 'ሰነዳት']},
+        {title: 'ትምህርቲ', links: ['ቋንቋ ትምህርቲ', 'ቴክኖሎጂ']},
+        {title: 'መርበብ ስደተኛታት', links: ['ታሪኻት ምካፍል', 'ክእለታት']},
+        {title: 'ሴትዮ ምምእካድ', links: ['ድጋፍ ስነ ልቦና', 'ናይ ቅንጻ ህክምና']}
+      ],
+      am: [
+        {title: 'የህግ እርዳታ', links: ['የመጠጥ መመሪያ', 'ሰነዶች']},
+        {title: 'ትምህርት', links: ['ቋንቋ', 'ቴክኖሎጂ']},
+        {title: 'የስደተኞች ኔትዎርክ', links: ['ታሪክ ማካፈል', 'ችሎታዎች']},
+        {title: 'የሴቶች ማስቻያ', links: ['የአእምሮ ጤና ድጋፍ', 'አደጋ ጊዜ እንክብካቤ']}
+      ],
+      so: [
+        {title: 'Caawimaad Sharci', links: ['Tilmaamaha magangelyada', 'dukumentiyada']},
+        {title: 'Waxbarasho', links: ['Luqad', 'Tiknoolaji']},
+        {title: 'Shabakadda Qaxootiga', links: ['Wadaagista sheekooyinka', 'Xirfadaha']},
+        {title: 'Xoojinta Gabdhaha', links: ['taageero caafimaadka maskaxda', 'daryeel degdeg ah']}
+      ]
+    };
+    const cards = document.querySelectorAll('#resourceCards .resource-card');
+    cardTranslations[lang].forEach((tr, i) => {
+      const card = cards[i];
+      if (card) {
+        const title = card.querySelector('.card-title');
+        if (title) title.innerText = tr.title;
+        // Update anchor text only, not structure
+        const links = card.querySelectorAll('.card-text a');
+        tr.links.forEach((text, j) => {
+          if (links[j]) links[j].innerText = text;
+        });
+      }
+    });
+
+    // RTL support for Arabic only
+    if (lang === 'ar') {
+      document.body.setAttribute('dir', 'rtl');
+    } else {
+      document.body.setAttribute('dir', 'ltr');
+    }
+  });
+</script>
+<footer class="footer">
+  <div class="fotrer">
+    <p>Natu&Banana💕✌</p>
+  <p>&copy; @ 2025 ! Refugee Support Network</p>
+  </div>
+  
+  <div class="continer">
+        <ul>
+            <li><a href=""><i class="fa-solid fa-envelope"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-square-whatsapp"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-square-instagram"></i></a></li>
+        </ul>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!-- Conversation opened. 1 read message.
+
+Skip to content
+Using Gmail with screen readers
+1 of 88
+work
+Inbox
+
+mbonigaba vicent
+Attachments
+5:31 PM (10 minutes ago)
+to me
+
+dreer
+ 5 Attachments
+  •  Scanned by Gmail
+Not connected. Connecting in 1s…
+Try now -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refugee Support Hub</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background-image 1s ease-in-out;
+    color: white;
+  }
+
+  /* Dark overlay for better text readability */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: -1;
+  }
+
+  .language-switcher {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 10;
+  }
+
+  .language-switcher select {
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+  }
+
+  h1, h2, p {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+  }
+
+  .card {
+    background: rgba(255,255,255,0.9);
+    color: black;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+</style>
+</head>
+<body>
+
+<!-- Language Switcher -->
+<div class="language-switcher">
+  <select id="languageSelect">
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+    <option value="ar">العربية</option>
+    <option value="sw">Kiswahili</option>
+    <option value="ti">ትግርኛ</option>
+  </select>
+</div>
+
+<!-- Main Heading -->
+<div class="container text-center py-5">
+  <h1 id="mainTitle">Welcome to the Refugee Support Hub</h1>
+  <p id="mainDesc">Connecting refugees with vital resources, services, and community support worldwide.</p>
+</div>
+
+<!-- Resource Categories -->
+<section id="resources" class="container py-5">
+  <div class="text-center mb-4">
+    <h2 id="findHelpTitle">Find Help</h2>
+    <p id="findHelpDesc">Choose a category to get started</p>
+  </div>
+  
+    
+
+    <!-- ...existing resource cards... -->
+    <div class="row g-4" id="resourceCards">
+      
+      <div class="col-md-4 resource-card" data-category="Legal Aid">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <i class="fas fa-gavel fa-2x mb-3 text-danger"></i>
+            <h5 class="card-title">Legal Aid</h5>
+            <p class="card-text">Asylum guidance, documentation, rights education.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 resource-card" data-category="Education">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <i class="fas fa-school fa-2x mb-3 text-success"></i>
+            <h5 class="card-title">Education</h5>
+            <p class="card-text">School enrollment, language classes, scholarships.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 resource-card" data-category="Refuges Network">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <!-- <i class="fas fa-hospital fa-2x mb-3 text-primary"></i> -->
+            <h5 class="card-title">Refuges Network</h5>
+            <p class="card-text">Story Sharing,  skills.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 resource-card" data-category="Inpairing Girls">
+        <div class="card shadow-sm h-100">
+          <div class="card-body text-center">
+            <!-- <i class="fas fa-hospital fa-2x mb-3 text-primary"></i> -->
+            <h5 class="card-title">Inpairing Girls</h5>
+            <p class="card-text">Clinics, mental health support, emergency care.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Background Images (real refugee-related images)
+  const images = [
+    "https://images.unsplash.com/photo-1509099836639-18ba1795216d",
+    "https://images.unsplash.com/photo-1523475496153-3d6cc450b1f5",
+    "https://images.unsplash.com/photo-1601582587271-1f1e1c6d78d2",
+    "https://images.unsplash.com/photo-1519681393784-d120267933ba"
+  ];
+
+  let currentImageIndex = 0;
+  function changeBackground() {
+    document.body.style.backgroundImage = `url(${images[currentImageIndex]})`;
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+  }
+  setInterval(changeBackground, 5000);
+  changeBackground();
+
+  // Translations
+  const translations = {
+    en: {
+      mainTitle: "Welcome to the Refugee Support Hub",
+      mainDesc: "Connecting refugees with vital resources, services, and community support worldwide.",
+      findHelpTitle: "Find Help",
+      findHelpDesc: "Choose a category to get started",
+      healthTitle: "Health Services",
+      healthDesc: "Clinics, mental health support, emergency care.",
+      legalTitle: "Legal Aid",
+      legalDesc: "Asylum guidance, documentation, rights education.",
+      eduTitle: "Education",
+      eduDesc: "School enrollment, language classes, scholarships."
+    },
+    fr: {
+      mainTitle: "Bienvenue au Centre de Soutien aux Réfugiés",
+      mainDesc: "Connecter les réfugiés aux ressources vitales, services et soutien communautaire dans le monde entier.",
+      findHelpTitle: "Trouvez de l'aide",
+      findHelpDesc: "Choisissez une catégorie pour commencer",
+      healthTitle: "Services de santé",
+      healthDesc: "Cliniques, soutien en santé mentale, soins d'urgence.",
+      legalTitle: "Aide juridique",
+      legalDesc: "Orientation sur l'asile, documentation, éducation aux droits.",
+      eduTitle: "Éducation",
+      eduDesc: "Inscription scolaire, cours de langue, bourses."
+    },
+    ar: {
+      mainTitle: "مرحبًا بكم في مركز دعم اللاجئين",
+      mainDesc: "ربط اللاجئين بالموارد والخدمات والدعم المجتمعي الحيوي حول العالم.",
+      findHelpTitle: "ابحث عن المساعدة",
+      findHelpDesc: "اختر فئة للبدء",
+      healthTitle: "الخدمات الصحية",
+      healthDesc: "عيادات، دعم الصحة النفسية، الرعاية الطارئة.",
+      legalTitle: "المساعدة القانونية",
+      legalDesc: "إرشادات اللجوء، الوثائق، التثقيف بالحقوق.",
+      eduTitle: "التعليم",
+      eduDesc: "التحاق بالمدارس، دروس لغة، منح دراسية."
+    },
+    sw: {
+      mainTitle: "Karibu kwenye Kituo cha Usaidizi wa Wakimbizi",
+      mainDesc: "Kuunganisha wakimbizi na rasilimali muhimu, huduma, na msaada wa jamii duniani kote.",
+      findHelpTitle: "Pata Msaada",
+      findHelpDesc: "Chagua aina ya huduma kuanza",
+      healthTitle: "Huduma za Afya",
+      healthDesc: "Vituo vya afya, msaada wa afya ya akili, huduma za dharura.",
+      legalTitle: "Msaada wa Kisheria",
+      legalDesc: "Mwongozo wa hifadhi, hati, elimu ya haki.",
+      eduTitle: "Elimu",
+      eduDesc: "Usajili wa shule, masomo ya lugha, ufadhili wa masomo."
+    },
+    ti: {
+      mainTitle: "እንኳዕ ብደሓን መፅናእ ናብ ማእከል ድጋፍ ምስ ስደተኛታት",
+      mainDesc: "ስደተኛታት ኣብ ዓለም ምስ ኣስፋፋሊ ሓገዝ፣ ኣገልግሎታትን ድጋፍ ህብረትን ምግናእ።",
+      findHelpTitle: "ሓገዝ ድለዩ",
+      findHelpDesc: "ምስጀመር ምርጫ ኣድሊ",
+      healthTitle: "ጥዕና ኣገልግሎታት",
+      healthDesc: "ክሊኒካታት፣ ድጋፍ ናይ ሓደጋ ስነ ልቦና፣ ህክምና ትካላይ።",
+      legalTitle: "ሕጋዊ ድጋፍ",
+      legalDesc: "መምርሒ ስደተኛ፣ ሰነዳት፣ ትምህርቲ ስርዓት ሓበሬታ።",
+      eduTitle: "ትምህርቲ",
+      eduDesc: "መዝገብ ት/ቤት፣ ቋንቋ ኣማራጺ ትምህርቲ፣ መንበር ኣገልግሎታት።"
+    }
+  };
+
+  document.getElementById('languageSelect').addEventListener('change', function() {
+    const lang = this.value;
+    // Update main headings and descriptions
+    for (const id in translations[lang]) {
+      const el = document.getElementById(id);
+      if (el) el.innerText = translations[lang][id];
+    }
+
+    // Update resource cards
+    const cardTranslations = {
+      en: [
+        {title: 'Legal Aid', desc: 'Asylum guidance, documentation, rights education.'},
+        {title: 'Education', desc: 'School enrollment, language classes, scholarships.'},
+        {title: 'Refuges Network', desc: 'Story Sharing,  skills.'},
+        {title: 'Inpairing Girls', desc: 'Clinics, mental health support, emergency care.'}
+      ],
+      fr: [
+        {title: 'Aide juridique', desc: "Orientation sur l'asile, documentation, éducation aux droits."},
+        {title: 'Éducation', desc: 'Inscription scolaire, cours de langue, bourses.'},
+        {title: 'Réseau des réfugiés', desc: 'Partage d’histoires, compétences.'},
+        {title: 'Autonomisation des filles', desc: 'Cliniques, soutien en santé mentale, soins d’urgence.'}
+      ],
+      ar: [
+        {title: 'المساعدة القانونية', desc: 'إرشادات اللجوء، الوثائق، التثقيف بالحقوق.'},
+        {title: 'التعليم', desc: 'التحاق بالمدارس، دروس لغة، منح دراسية.'},
+        {title: 'شبكة اللاجئين', desc: 'مشاركة القصص، المهارات.'},
+        {title: 'تمكين الفتيات', desc: 'عيادات، دعم الصحة النفسية، الرعاية الطارئة.'}
+      ],
+      sw: [
+        {title: 'Msaada wa Kisheria', desc: 'Mwongozo wa hifadhi, hati, elimu ya haki.'},
+        {title: 'Elimu', desc: 'Usajili wa shule, masomo ya lugha, ufadhili wa masomo.'},
+        {title: 'Mtandao wa Wakimbizi', desc: 'Kushiriki hadithi, ujuzi.'},
+        {title: 'Kuimarisha Wasichana', desc: 'Vituo vya afya, msaada wa afya ya akili, huduma za dharura.'}
+      ],
+      ti: [
+        {title: 'ሕጋዊ ድጋፍ', desc: 'መምርሒ ስደተኛ፣ ሰነዳት፣ ትምህርቲ ስርዓት ሓበሬታ።'},
+        {title: 'ትምህርቲ', desc: 'መዝገብ ት/ቤት፣ ቋንቋ ኣማራጺ ትምህርቲ፣ መንበር ኣገልግሎታት።'},
+        {title: 'ንዝደፈኑ መርበብ', desc: 'ዝተካፈሉ ታሪኻት፣ ክእለታት።'},
+        {title: 'ሴትዮ ምምእካድ', desc: 'ክሊኒካታት፣ ድጋፍ ናይ ሓደጋ ስነ ልቦና፣ ህክምና ትካላይ።'}
+      ]
+    };
+    const cards = document.querySelectorAll('#resourceCards .resource-card');
+    cardTranslations[lang].forEach((tr, i) => {
+      const card = cards[i];
+      if (card) {
+        const title = card.querySelector('.card-title');
+        const desc = card.querySelector('.card-text');
+        if (title) title.innerText = tr.title;
+        if (desc) desc.innerText = tr.desc;
+      }
+    });
+
+    // RTL support for Arabic and Tigrigna
+    if (lang === 'ar' || lang === 'ti') {
+      document.body.setAttribute('dir', 'rtl');
+    } else {
+      document.body.setAttribute('dir', 'ltr');
+    }
+  });
+</script>
+
+</body>
+</html>
+<!-- 1 PAGE.html
+Displaying education.html.  -->

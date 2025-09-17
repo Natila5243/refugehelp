@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ICT — Bright Tech Future</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #f6fbf7;
+    --accent: #1b73e8;
+    --muted: #56606a;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(180deg, #e8f1fa 0%, #f6fbf7 100%);
+    color: #123;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .card {
+    max-width: 980px;
+    width: 100%;
+    background: var(--card);
+    border-radius: 14px;
+    box-shadow: 0 18px 40px rgba(20,40,20,0.08);
+    padding: 36px;
+  }
+  h1 {
+    color: var(--accent);
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+  }
+  p.lead {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  .computer-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    cursor: pointer;
+  }
+  .computer-svg { width: 76px; height: 76px; }
+  .computer-on .screen { fill: #1b73e8; }
+  .computer-on .body { fill: #cce4ff; }
+  .caption { font-size: .95rem; color: var(--muted); }
+  .img-wrap {
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(5,20,10,0.06);
+  }
+  .img-wrap img { width: 100%; height: 800px; object-fit: cover; }
+  .links {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #08361b;
+    background: linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.82));
+    box-shadow: 0 6px 14px rgba(10,30,10,0.04);
+    font-weight: 600;
+  }
+  .pill .logo {
+    width: 36px; height: 36px; border-radius: 8px; background: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; color: var(--accent);
+  }
+  input, select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 12px;
+  }
+  #langSelect {
+    margin-bottom: 20px;
+  }
+  @media(max-width: 600px){
+    h1 { font-size: 1.8rem; }
+  }
+
+    #header  ul {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 20px;
+    list-style: none;
+    border-radius: 5px;
+
+    background: rgba(8, 8, 8, 0.5);
+    color: white;
+    padding: 30px;
+    font-size: 20px;
+    backdrop-filter: blur(8px) saturate(180%);
+    -webkit-backdrop-filter: blur(8px) saturate(180%);
+    /* border-radius: 15px 15px 0 0; */
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+  #header li {
+    background-color: rgb(68, 68, 248);
+    color: white;
+    padding: 4px;
+    border-radius: 5px;
+  }
+  #header a{
+    text-decoration: none;
+  }
+  #header li:hover{
+    padding: 8px;
+    text-decoration: underline;
+    color: rgb(182, 181, 181);
+  }
+  .links a:hover{
+           background-color: rgb(9, 9, 31);
+  }
+</style>
+</head>
+<body>
+ <div class="card">
+      <header>
+        <div id="header">
+          <nav>
+            <ul>
+              <a href="natu 11.html"><li>Home page</li></a>
+              <a href="#"><li>About us</li></a>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    <!-- Language Selector -->
+    <select id="langSelect">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="sw">Kiswahili</option>
+      <option value="ar">العربية</option>
+      <option value="ti">ትግርኛ</option>
+    </select>
+  <h1 id="title">ICT</h1>
+  <p class="lead" id="intro">
+    Information and Communication Technology empowers you to connect, create, and innovate.
+    Mastering ICT skills opens doors to global opportunities, from coding and design to 
+    networking and entrepreneurship. Your digital journey starts today.
+  </p>
+
+  <!-- Coding image -->
+  <div class="img-wrap">
+    <img src="./refuge network.webp" width="" height="2000" alt="ict">
+    <!-- <img src="https://source.unsplash.com/800x450/?coding,programming,computer" 
+         alt="Person coding on a computer" /> -->
+  </div>
+
+  <!-- Computer (instead of Bulb) -->
+  <div class="computer-row" id="computer">
+    <svg class="computer-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <rect class="body" x="8" y="12" width="48" height="32" rx="4" ry="4" fill="#e0e7ff"/>
+      <rect class="screen" x="14" y="18" width="36" height="22" rx="2" ry="2" fill="#aabbff"/>
+      <rect x="20" y="50" width="24" height="4" rx="1" ry="1" fill="#888"/>
+      <circle cx="32" cy="56" r="2" fill="#555"/>
+    </svg>
+    <div class="caption" id="computerCaption">
+      <strong>Power your tech skills</strong><br><small>Click the computer — innovation starts with learning.</small>
+    </div>
+  </div>
+
+  <!-- Links -->
+  <div class="links">
+    <a class="pill" href="https://www.codecademy.com" target="_blank" data-category="course" id="res1">
+      <span class="logo">CC</span> Codecademy — Learn coding interactively
+    </a>
+    <a class="pill" href="https://www.freecodecamp.org" target="_blank" data-category="course" id="res2">
+      <span class="logo">FC</span> freeCodeCamp — Full ICT skills training
+    </a>
+    <a class="pill" href="https://www.youtube.com/c/TechWithTim" target="_blank" data-category="video" id="res3">
+      <span class="logo">YT</span> YouTube — Tech With Tim (programming videos)
+    </a>
+    <a class="pill" href="https://www.coursera.org" target="_blank" data-category="certification" id="res4">
+      <span class="logo">CR</span> Coursera — Earn ICT certificates
+    </a>
+    <a class="pill" href="https://scratch.mit.edu" target="_blank" data-category="app" id="res5">
+      <span class="logo">SC</span> Scratch — Learn coding with fun projects
+    </a>
+  </div>
+</div>
+
+<script>
+  const translations = {
+    en: {
+      title: "ICT",
+      intro: "Information and Communication Technology empowers you to connect, create, and innovate. Mastering ICT skills opens doors to global opportunities, from coding and design to networking and entrepreneurship. Your digital journey starts today.",
+      compOff: "Power your tech skills|Click the computer — innovation starts with learning.",
+      compOn: "Bright Tech Future|Keep learning — your skills shine brighter every day.",
+      res: [
+        "Codecademy — Learn coding interactively",
+        "freeCodeCamp — Full ICT skills training",
+        "YouTube — Tech With Tim (programming videos)",
+        "Coursera — Earn ICT certificates",
+        "Scratch — Learn coding with fun projects"
+      ]
+    },
+    fr: {
+      title: "TIC",
+      intro: "Les Technologies de l’Information et de la Communication vous permettent de vous connecter, créer et innover. Maîtriser les compétences TIC ouvre les portes à des opportunités mondiales, du codage et du design au réseautage et à l’entrepreneuriat. Votre voyage numérique commence aujourd’hui.",
+      compOff: "Alimentez vos compétences technologiques|Cliquez sur l’ordinateur — l’innovation commence par l’apprentissage.",
+      compOn: "Avenir numérique brillant|Continuez à apprendre — vos compétences brillent chaque jour davantage.",
+      res: [
+        "Codecademy — Apprenez le codage de manière interactive",
+        "freeCodeCamp — Formation complète en TIC",
+        "YouTube — Tech With Tim (vidéos de programmation)",
+        "Coursera — Obtenez des certificats TIC",
+        "Scratch — Apprenez le codage avec des projets amusants"
+      ]
+    },
+    sw: {
+      title: "TEHAMA",
+      intro: "Teknolojia ya Habari na Mawasiliano hukupa nguvu ya kuunganishwa, kuunda, na kubuni. Kumasteri ujuzi wa TEHAMA hufungua milango ya fursa za kimataifa, kutoka kwa usimbaji na usanifu hadi mitandao na ujasiriamali. Safari yako ya kidigitali inaanza leo.",
+      compOff: "Washa ujuzi wako wa teknolojia|Bonyeza kompyuta — ubunifu huanza kwa kujifunza.",
+      compOn: "Mustakabali wa Teknolojia Angavu|Endelea kujifunza — ujuzi wako unaangaza kila siku.",
+      res: [
+        "Codecademy — Jifunze usimbaji kwa njia ya mwingiliano",
+        "freeCodeCamp — Mafunzo kamili ya ujuzi wa TEHAMA",
+        "YouTube — Tech With Tim (video za programu)",
+        "Coursera — Pata vyeti vya TEHAMA",
+        "Scratch — Jifunze usimbaji kwa miradi ya kufurahisha"
+      ]
+    },
+    ar: {
+      title: "تكنولوجيا المعلومات والاتصالات",
+      intro: "تمنحك تكنولوجيا المعلومات والاتصالات القدرة على التواصل والإبداع والابتكار. إتقان مهارات تكنولوجيا المعلومات يفتح الأبواب لفرص عالمية، من البرمجة والتصميم إلى الشبكات وريادة الأعمال. تبدأ رحلتك الرقمية اليوم.",
+      compOff: "قم بتشغيل مهاراتك التقنية|اضغط على الكمبيوتر — الابتكار يبدأ بالتعلم.",
+      compOn: "مستقبل تقني مشرق|استمر في التعلم — مهاراتك تزداد إشراقاً كل يوم.",
+      res: [
+        "Codecademy — تعلم البرمجة بطريقة تفاعلية",
+        "freeCodeCamp — تدريب شامل في تكنولوجيا المعلومات",
+        "YouTube — Tech With Tim (فيديوهات برمجة)",
+        "Coursera — احصل على شهادات تكنولوجيا المعلومات",
+        "Scratch — تعلم البرمجة من خلال مشاريع ممتعة"
+      ]
+    },
+    ti: {
+      title: "መረብን እና መረዳእታ ቴክኖሎጂ",
+      intro: "መረብን እና መረዳእታ ቴክኖሎጂ እትኽእልካ ንምዝርጋብ፣ ንምፍጣርን ንምሕዳስን ትህብ. ብመርሓ ግብሪ ናይ ቴክኖሎጂ ክእለትካ እትኽእል ክምጽእ ኣብ ዓለም ኣገልግሎታት፣ ካብ ኮዲንግ እና ኣብ ማዕከላይ ክልተ ደረጃታት ክሳብ ንውግንን ንንግዲን. ምዕራፍካ ዲጂታል ሎሚ ይጀምር.",
+      compOff: "ኃይል ኣብ ቴክኖሎጂ ክምርሐ|ናብ ኮምፒተር — ሓድሽ ሓሳብ ኣብ ትምህርቲ ይጀምር.",
+      compOn: "እድገት ብርሃን ቴክኖሎጂ|ቀጽል ትምህርቲ — ክእለትካ ከምዝበለ ትምቅር.",
+      res: [
+        "Codecademy — ኮዲንግ ብቀጥታ ትምህርቲ ተማህረ",
+        "freeCodeCamp — ሙሉ ስልጠና ናይ ቴክኖሎጂ",
+        "YouTube — Tech With Tim (ቪድዮ ኮዲንግ)",
+        "Coursera — ምስክር ወረቐት ናይ ቴክኖሎጂ ረኽብ",
+        "Scratch — ኮዲንግ ብምስጋና ፕሮጀክታት ተማህረ"
+      ]
+    }
+  };
+
+  const langSelect = document.getElementById('langSelect');
+  const titleEl = document.getElementById('title');
+  const introEl = document.getElementById('intro');
+  const computerCaption = document.getElementById('computerCaption');
+  const resourceEls = [
+    document.getElementById('res1'),
+    document.getElementById('res2'),
+    document.getElementById('res3'),
+    document.getElementById('res4'),
+    document.getElementById('res5')
+  ];
+  const computer = document.getElementById('computer');
+  const card = document.querySelector('.card');
+
+  function updateLanguage(lang) {
+    const t = translations[lang];
+    titleEl.textContent = t.title;
+    introEl.textContent = t.intro;
+    const [compOffTitle, compOffSub] = t.compOff.split('|');
+    computerCaption.innerHTML = `<strong>${compOffTitle}</strong><br><small>${compOffSub}</small>`;
+    resourceEls.forEach((el, i) => {
+      const logo = el.querySelector('.logo').textContent;
+      el.innerHTML = `<span class="logo">${logo}</span> ${t.res[i]}`;
+    });
+    // Reset computer color & caption if toggled on
+    if (card.classList.contains('computer-on')) {
+      const [title, sub] = t.compOn.split('|');
+      computerCaption.innerHTML = `<strong>${title}</strong><br><small>${sub}</small>`;
+      card.classList.add('computer-on');
+    } else {
+      card.classList.remove('computer-on');
+    }
+  }
+
+  langSelect.addEventListener('change', e => updateLanguage(e.target.value));
+
+  // Computer toggle
+  computer.addEventListener('click', () => {
+    const lang = langSelect.value;
+    const t = translations[lang];
+    card.classList.toggle('computer-on');
+    const [title, sub] = card.classList.contains('computer-on') ? t.compOn.split('|') : t.compOff.split('|');
+    computerCaption.innerHTML = `<strong>${title}</strong><br><small>${sub}</small>`;
+  });
+
+  // Initialize with default language
+  updateLanguage(langSelect.value);
+</script>
+
+</body>
+</html>

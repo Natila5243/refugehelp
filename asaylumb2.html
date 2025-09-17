@@ -1,0 +1,485 @@
+<!-- Conversation opened. 1 read message.
+
+Skip to content
+Using Gmail with screen readers
+1 of 88
+work
+Inbox
+
+mbonigaba vicent
+Attachments
+5:31 PM (10 minutes ago)
+to me
+
+dreer
+ 5 Attachments
+  •  Scanned by Gmail
+Not connected. Connecting in 1s…
+Try now -->
+<!--
+Asylum Guidance - Single-file project (HTML / CSS / JS)
+Features:
+- Responsive, accessible layout
+- Language toggle (English, French, Arabic (RTL), Kiswahili, Tigrinya)
+- Sections: Hero, Step-by-step asylum guidance, Legal resources, Mental health & support, Skills exchange, FAQ, Contact form, Login modal
+- Search and filter resources
+- LocalStorage example (save resource bookmarks, simple login state)
+- Comments and guidance so you can adapt easily
+
+Usage: Save this as `index.html` and open in a browser. Images come from Unsplash (CDN). No backend required for demo.
+-->
+
+<!doctype html>
+<html lang="en" id="html-root">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Asylum Guidance — Global Refugee Support</title>
+  <meta name="description" content="Comprehensive asylum guidance, resources and support for refugees worldwide." />
+  <style>
+    /* RESET & BASE */
+    :root{
+      --bg:#f7f9fb; --card:#ffffff; --muted:#64748b; --accent:#0b78d1; --success:#16a34a; --danger:#dc2626;
+      --radius:14px; --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:#0b1220}
+    img{max-width:100%;height:auto;display:block}
+    a{color:var(--accent);text-decoration:none}
+
+    /* LAYOUT */
+    .container{max-width:var(--maxw);margin:0 auto;padding:24px}
+    header{background:linear-gradient(90deg,#ffffffcc,#f0f6ff);backdrop-filter:blur(4px);position:sticky;top:0;z-index:50;box-shadow:0 6px 20px rgba(12,18,30,0.04)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 24px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,#0b78d1,#2bb6ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav ul{display:flex;gap:12px;align-items:center;list-style:none;margin:0;padding:0}
+    button, .btn{cursor:pointer}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:48px 0}
+    .hero-card{background:var(--card);padding:26px;border-radius:var(--radius);box-shadow:0 8px 30px rgba(27,40,60,0.06)}
+    .hero h1{font-size:28px;margin:0 0 12px}
+    .hero p{margin:0 0 18px;color:var(--muted)}
+
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-primary{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;border:0}
+    .btn-ghost{background:transparent;border:1px solid #e6eefc;padding:10px 14px;border-radius:10px}
+
+    /* GRID OF SECTIONS */
+    .grid{display:grid;grid-template-columns:1fr 380px;gap:20px;margin-top:20px}
+    main.section-card, aside.section-card{background:var(--card);padding:20px;border-radius:12px}
+
+    /* CARDS */
+    .card{background:#fff;border-radius:12px;padding:14px;box-shadow:0 6px 16px rgba(17,24,39,0.04);}
+    .resource{display:flex;gap:12px;align-items:flex-start}
+    .resource img{width:84px;height:60px;object-fit:cover;border-radius:8px}
+    .tag{display:inline-block;background:#f0f7ff;color:var(--accent);padding:6px 8px;border-radius:999px;font-size:12px}
+
+    /* FAQ */
+    details{margin-bottom:10px}
+
+    /* FORMS */
+    label{display:block;font-size:14px;margin-bottom:6px}
+    input[type=text], input[type=email], textarea, select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eefc;background:#fbfdff}
+    textarea{min-height:100px}
+
+    /* SMALLER SCREENS */
+    @media (max-width:980px){.hero{grid-template-columns:1fr;}.grid{grid-template-columns:1fr}.nav ul{display:none}.nav .menu-btn{display:block}.hero-card{order:2}}
+    @media (max-width:520px){.hero h1{font-size:22px}}
+
+    /* LANGUAGE RTL adjustments */
+    :root[dir="rtl"]{direction:rtl}
+    :root[dir="rtl"] .nav ul{direction:rtl}
+
+    /* Footer */
+    footer{padding:28px 0;color:var(--muted);font-size:14px}
+
+    /* small utilities */
+    .muted{color:var(--muted)}
+    .small{font-size:13px}
+    .flex{display:flex;gap:12px;align-items:center}
+
+    #nav ul{
+     display: flex;
+     justify-content: right;
+     gap: 50px;
+     
+    }
+
+  #nav ul a{
+     background-color: #0b78d1;
+     color: white;
+     padding: 8px;
+     border-radius: 5px;
+     font-size: 1.5em;
+     text-decoration: none;
+  }
+  #nav ul a:hover{
+    padding: 10px;
+    text-decoration: underline;
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav" role="banner">
+      <div class="brand">
+        <div class="logo" aria-hidden>AG</div>
+        <div>
+          <div style="font-weight:700">Asylum Guidance</div>
+          <div class="small muted">Practical help for refugees worldwide</div>
+        </div>
+      </div>
+
+      <div id="nav">
+        <nav>
+          <ul>
+            <a href="./natu 11.html"><li>Home</li></a>
+            <a href=""><li>About Us</li></a>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- <div class="menu">
+        <ul role="navigation" aria-label="Main navigation">
+          <li><a href="#how">How it works</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#support">Support</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div> -->
+
+      <div class="flex">
+        <select id="langSelect" aria-label="Select language">
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="sw">Kiswahili</option>
+          <option value="ar">العربية</option>
+          <option value="ti">ትግርኛ</option>
+        </select>
+        <button class="btn btn-ghost" id="loginBtn">Login</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h1 id="heroTitle">Asylum Guidance: Step-by-step help for refugees</h1>
+        <p id="heroDesc">Practical information on asylum procedures, legal aid, safe housing, mental health support and ways to rebuild your life. Available in multiple languages.</p>
+        <div class="actions">
+          <a href="#how" class="btn-primary">Get started</a>
+          <button class="btn-ghost" id="saveSiteBtn">Save this page</button>
+        </div>
+        <hr style="margin:18px 0">
+        <div class="card small">
+          <strong id="emergencyTitle">Emergency Help</strong>
+          <p class="small muted" id="emergencyDesc">If you are in immediate danger, contact local emergency services or the nearest international organization.</p>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-labelledby="quickHelpTitle">
+        <h3 id="quickHelpTitle">Quick actions</h3>
+        <div style="display:grid;gap:12px;margin-top:12px">
+          <a class="card" href="#resources">Find local legal aid</a>
+          <a class="card" href="#support">Find mental health support</a>
+          <a class="card" href="#skills">Skills exchange & jobs</a>
+        </div>
+      </aside>
+    </section>
+
+    <div class="grid">
+      <main class="section-card" id="how">
+        <h2 id="howTitle">How asylum works — simplified</h2>
+        <p class="muted" id="howDesc">A general overview. Asylum rules vary by country — always check legal guidance for the country where you apply.</p>
+
+        <ol>
+          <li><strong>Seek safe shelter</strong> — get to a safe location and contact local authorities or aid organizations.</li>
+          <li><strong>Register your claim</strong> — follow country-specific registration procedures and keep documentation.</li>
+          <li><strong>Find legal assistance</strong> — free legal clinics and NGOs can help with forms and interviews.</li>
+          <li><strong>Attend interviews</strong> — prepare your testimony and provide supporting documents.</li>
+          <li><strong>Appeal if necessary</strong> — legal representation can help if the claim is denied.</li>
+        </ol>
+
+        <h3>Documents that help</h3>
+        <ul>
+          <li>Identity documents (passport, national ID)</li>
+          <li>Birth and marriage certificates</li>
+          <li>Evidence of persecution (photos, messages, medical records)</li>
+          <li>Witness statements</li>
+        </ul>
+
+        <h3 id="faqTitle">Common questions</h3>
+        <details>
+          <summary>What if I don't have documents?</summary>
+          <p class="muted">You can still apply — explain why documents are missing and provide supporting testimony or alternative evidence.</p>
+        </details>
+        <details>
+          <summary>How long does the process take?</summary>
+          <p class="muted">Processing times vary widely between countries; some decisions take months, others years. Stay in contact with your legal representative.</p>
+        </details>
+
+        <h3 id="skills">Skills exchange</h3>
+        <p class="muted">A place to list skills you can share or training you need. Community-driven to help people find jobs and apprenticeships.</p>
+        <div class="card">
+          <form id="skillForm">
+            <label for="skillName">Skill or job</label>
+            <input id="skillName" type="text" placeholder="e.g. Tailoring, Web design, Farming" />
+            <label for="skillDesc">Short description</label>
+            <input id="skillDesc" type="text" placeholder="What can you offer or what do you need?" />
+            <div style="display:flex;gap:8px;margin-top:10px">
+              <button class="btn-primary" type="submit">Share skill</button>
+              <button type="button" class="btn-ghost" id="clearSkills">Clear</button>
+            </div>
+          </form>
+          <div id="skillList" style="margin-top:12px"></div>
+        </div>
+
+      </main>
+
+      <aside class="section-card" id="resources">
+        <h3>Resources</h3>
+        <p class="small muted">Search and filter trusted organizations</p>
+        <div style="display:flex;gap:8px;margin:12px 0">
+          <input id="searchResources" type="text" placeholder="Search resources (legal, shelter, health)" />
+          <select id="filterType"><option value="all">All</option><option value="legal">Legal</option><option value="shelter">Shelter</option><option value="health">Health</option></select>
+        </div>
+
+        <div id="resourceList">
+          <!-- Resources injected by JS -->
+        </div>
+
+        <hr style="margin:12px 0">
+        <div>
+          <h4>FAQ & Help</h4>
+          <p class="muted small">If you need immediate help, contact local emergency numbers or international hotlines such as UNHCR.</p>
+        </div>
+      </aside>
+    </div>
+
+    <section style="margin-top:20px" class="container">
+      <div class="section-card">
+        <h3 id="support">Mental health & support</h3>
+        <p class="muted">Resources and self-care tips. If you're struggling, reach out to a local clinic or hotline — support is available.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px">
+          <div class="card">
+            <h4>Self-care</h4>
+            <p class="small muted">Simple breathing exercises, grounding techniques and community groups can help reduce anxiety.</p>
+          </div>
+          <div class="card">
+            <h4>Find a counselor</h4>
+            <p class="small muted">Many NGOs offer free counseling for refugees. Local clinics may have interpreters.</p>
+          </div>
+          <div class="card">
+            <h4>Emergency support</h4>
+            <p class="small muted">If you are at risk of harm, call your local emergency number immediately.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:18px" class="container">
+      <div class="section-card">
+        <h3>Contact & Ask for help</h3>
+        <form id="contactForm">
+          <label for="name">Name</label>
+          <input id="name" type="text" required />
+          <label for="email">Email (or provide a phone number)</label>
+          <input id="email" type="email" />
+          <label for="message">How can we help you?</label>
+          <textarea id="message"></textarea>
+          <div style="display:flex;gap:10px;margin-top:10px">
+            <button class="btn-primary" type="submit">Send request</button>
+            <button class="btn-ghost" type="button" id="saveContact">Save draft</button>
+          </div>
+        </form>
+        <div id="contactResult" style="margin-top:12px"></div>
+      </div>
+    </section>
+
+    <footer class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div>&copy; <span id="year"></span> Asylum Guidance — Built for communities</div>
+        <div class="small muted">This is a demo project. For legal advice contact a qualified attorney or accredited organization.</div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- LOGIN MODAL -->
+  <div id="loginModal" style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;background:rgba(7,10,15,0.4);z-index:200">
+    <div style="background:var(--card);padding:18px;border-radius:12px;min-width:320px;max-width:420px">
+      <h3 id="loginTitle">Login</h3>
+      <form id="loginForm">
+        <label for="uemail">Email</label>
+        <input id="uemail" type="email" required />
+        <label for="upass">Password</label>
+        <input id="upass" type="text" required />
+        <div style="display:flex;gap:8px;margin-top:12px;justify-content:flex-end">
+          <button type="button" class="btn-ghost" id="closeLogin">Cancel</button>
+          <button class="btn-primary" type="submit">Sign in</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Basic app data and translations
+    const translations = {
+      en: {
+        heroTitle: 'Asylum Guidance: Step-by-step help for refugees',
+        heroDesc: 'Practical information on asylum procedures, legal aid, safe housing, mental health support and ways to rebuild your life. Available in multiple languages.',
+        emergencyTitle: 'Emergency Help',
+        emergencyDesc: 'If you are in immediate danger, contact local emergency services or the nearest international organization.',
+        howTitle: 'How asylum works — simplified',
+        howDesc: 'A general overview. Asylum rules vary by country — always check legal guidance for the country where you apply.'
+      },
+      fr: {
+        heroTitle: 'Guide d\'asile : Aide étape par étape pour les réfugiés',
+        heroDesc: 'Informations pratiques sur les procédures d\'asile, l\'aide juridique, le logement, le soutien en santé mentale et les moyens de reconstruire votre vie. Disponible en plusieurs langues.',
+        emergencyTitle: 'Aide d\'urgence',
+        emergencyDesc: "Si vous êtes en danger immédiat, contactez les services d'urgence locaux ou l'organisation internationale la plus proche.",
+        howTitle: 'Comment fonctionne l\'asile — résumé',
+        howDesc: "Aperçu général. Les règles d'asile varient selon les pays — vérifiez toujours les conseils juridiques pour le pays où vous postulez."
+      },
+      sw: {
+        heroTitle: 'Mwongozo wa Uhamisho: Msaada hatua kwa hatua kwa wakimbizi',
+        heroDesc: 'Taarifa za vitendo kuhusu taratibu za ukaazi, msaada wa kisheria, makazi salama, msaada wa afya ya akili na njia za kujenga maisha yako upya. Zinapatikana kwa lugha nyingi.',
+        emergencyTitle: 'Msaada wa Dharura',
+        emergencyDesc: 'Ikiwa uko katika hatari ya papo hapo, wasiliana na huduma za dharura za eneo lako au shirika la kimataifa linalokaribia.',
+        howTitle: 'Jinsi uraia/ulaazi unavyofanya kazi — kwa ufupisho',
+        howDesc: 'Muhtasari wa jumla. Sheria za ukaazi zinatofautiana kwa nchi — hakikisha unapata ushauri wa kisheria kwa nchi unayoomba.'
+      },
+      ar: {
+        heroTitle: 'دليل اللجوء: مساعدة خطوة بخطوة للاجئين',
+        heroDesc: 'معلومات عملية حول إجراءات اللجوء والمساعدة القانونية والإسكان الآمن والدعم النفسي وطرق إعادة بناء الحياة. متوفر بعدة لغات.',
+        emergencyTitle: 'مساعدة طارئة',
+        emergencyDesc: 'إذا كنت في خطر فوري، فاتصل بخدمات الطوارئ المحلية أو أقرب منظمة دولية.',
+        howTitle: 'كيف يعمل اللجوء — تبسيط',
+        howDesc: 'نظرة عامة عامة. تختلف قواعد اللجوء حسب البلد — تحقق دائمًا من الإرشادات القانونية للبلد الذي تتقدم فيه.'
+      },
+      ti: {
+        heroTitle: 'መከላከያ መመሪያ: ደጋግሞ ዕምቢ ዘለኹ ናይ ስደተኛታት',
+        heroDesc: 'ብግብሪ መረዳእታ ንሂወት ምክንያት ሂወት ዝኾነ ጉዳይ፣ ሕጊ አገደም፣ ፍቓድ መኖርታ እና ናይ ኣእምሮ ደጋግሞ ዝገብር ንምግባር መረዳእታ።'
+      }
+    };
+
+    // Populate year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Language switch
+    const langSelect = document.getElementById('langSelect');
+    function applyLanguage(lang){
+      const t = translations[lang] || translations.en;
+      document.getElementById('heroTitle').textContent = t.heroTitle;
+      document.getElementById('heroDesc').textContent = t.heroDesc;
+      document.getElementById('emergencyTitle').textContent = t.emergencyTitle;
+      document.getElementById('emergencyDesc').textContent = t.emergencyDesc;
+      document.getElementById('howTitle').textContent = t.howTitle;
+      document.getElementById('howDesc').textContent = t.howDesc;
+      // set direction for Arabic
+      if(lang === 'ar') document.documentElement.setAttribute('dir','rtl'); else document.documentElement.removeAttribute('dir');
+      // store preference
+      localStorage.setItem('ag_lang', lang);
+    }
+    langSelect.addEventListener('change', e => applyLanguage(e.target.value));
+    // load saved
+    applyLanguage(localStorage.getItem('ag_lang') || 'en');
+
+    // RESOURCE DATA (example dataset)
+    const resources = [
+      {id:1,title:'UNHCR - Local Office',type:'legal',desc:'Refugee registration and legal advice',img:'./asuylem',link:'#'},
+      {id:2,title:'Health Clinic - Community Center',type:'health',desc:'Walk-in clinic with interpreter services',img:'https://images.unsplash.com/photo-1584467735878-8f5bb6c3b3a6?auto=format&fit=crop&w=800&q=60',link:'#'},
+      {id:3,title:'Emergency Shelter Network',type:'shelter',desc:'Short-term shelter and family services',img:'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=60',link:'#'},
+      {id:4,title:'Pro Bono Legal Clinic',type:'legal',desc:'Volunteer lawyers helping with asylum forms',img:'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=60',link:'#'}
+    ];
+
+    const resourceList = document.getElementById('resourceList');
+    function renderResources(filter='',query=''){
+      resourceList.innerHTML='';
+      const q = query.trim().toLowerCase();
+      const filtered = resources.filter(r=> (filter==='all'||!filter?true: r.type===filter) && (q? (r.title.toLowerCase().includes(q)||r.desc.toLowerCase().includes(q)) : true));
+      if(filtered.length===0){resourceList.innerHTML='<div class="small muted">No resources found.</div>';return}
+      filtered.forEach(r=>{
+        const div = document.createElement('div'); div.className='card resource';
+        div.innerHTML = `<img src="${r.img}" alt="${r.title}"><div style="flex:1"><strong>${r.title}</strong><div class="small muted">${r.desc}</div><div style="margin-top:8px"><span class="tag">${r.type}</span> <button style="float:right" data-id="${r.id}" class="btn-ghost saveResource">Save</button></div></div>`;
+        resourceList.appendChild(div);
+      })
+    }
+    renderResources();
+
+    document.getElementById('searchResources').addEventListener('input', e=>{
+      renderResources(document.getElementById('filterType').value, e.target.value);
+    });
+    document.getElementById('filterType').addEventListener('change', e=>{
+      renderResources(e.target.value, document.getElementById('searchResources').value);
+    });
+
+    // Save resource example
+    document.addEventListener('click', e=>{
+      if(e.target.classList.contains('saveResource')){
+        const id = e.target.getAttribute('data-id');
+        const saved = JSON.parse(localStorage.getItem('ag_saved')||'[]');
+        if(!saved.includes(id)) saved.push(id);
+        localStorage.setItem('ag_saved', JSON.stringify(saved));
+        e.target.textContent='Saved';
+      }
+    });
+
+    // Skills exchange (local only)
+    const skillsKey='ag_skills';
+    function loadSkills(){
+      const list = JSON.parse(localStorage.getItem(skillsKey)||'[]');
+      const container = document.getElementById('skillList'); container.innerHTML='';
+      list.forEach(s=>{const el=document.createElement('div');el.className='card small';el.style.marginBottom='8px';el.innerHTML=`<strong>${escapeHtml(s.name)}</strong><div class="muted small">${escapeHtml(s.desc)}</div>`;container.appendChild(el)});
+    }
+    document.getElementById('skillForm').addEventListener('submit', e=>{
+      e.preventDefault(); const name=document.getElementById('skillName').value.trim(); const desc=document.getElementById('skillDesc').value.trim();
+      if(!name) return alert('Please provide a skill name');
+      const list=JSON.parse(localStorage.getItem(skillsKey)||'[]'); list.unshift({name,desc}); localStorage.setItem(skillsKey, JSON.stringify(list));
+      document.getElementById('skillName').value=''; document.getElementById('skillDesc').value=''; loadSkills();
+    });
+    document.getElementById('clearSkills').addEventListener('click', ()=>{localStorage.removeItem(skillsKey); loadSkills();});
+    loadSkills();
+
+    // Contact form (demo: saves locally)
+    document.getElementById('contactForm').addEventListener('submit', e=>{
+      e.preventDefault(); const payload = {name:document.getElementById('name').value, email:document.getElementById('email').value, message:document.getElementById('message').value, date:new Date().toISOString()};
+      const inbox = JSON.parse(localStorage.getItem('ag_contacts')||'[]'); inbox.unshift(payload); localStorage.setItem('ag_contacts', JSON.stringify(inbox));
+      document.getElementById('contactResult').innerHTML='<div class="card small">Request saved locally. For urgent legal help contact accredited orgs.</div>';
+      document.getElementById('contactForm').reset();
+    });
+    document.getElementById('saveContact').addEventListener('click', ()=>{
+      const draft = {name:document.getElementById('name').value, email:document.getElementById('email').value, message:document.getElementById('message').value}; localStorage.setItem('ag_contact_draft', JSON.stringify(draft)); alert('Draft saved locally');
+    });
+
+    // Login modal
+    const loginBtn = document.getElementById('loginBtn'), loginModal = document.getElementById('loginModal'), closeLogin = document.getElementById('closeLogin');
+    loginBtn.addEventListener('click', ()=>{loginModal.style.display='flex'});
+    closeLogin.addEventListener('click', ()=>{loginModal.style.display='none'});
+    document.getElementById('loginForm').addEventListener('submit', e=>{
+      e.preventDefault(); const email = document.getElementById('uemail').value; localStorage.setItem('ag_user', JSON.stringify({email})); loginModal.style.display='none'; alert('Signed in (demo)');
+    });
+
+    // Save page button
+    document.getElementById('saveSiteBtn').addEventListener('click', ()=>{
+      const saved = {date:new Date().toISOString(), title:document.title}; localStorage.setItem('ag_site_saved', JSON.stringify(saved)); alert('Page saved locally.');
+    });
+
+    // small helper: escape HTML
+    function escapeHtml(s){return String(s).replace(/[&<>"']/g, function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[c]});}
+
+    // simple client-side persistence of language select
+    (function(){ const saved = localStorage.getItem('ag_lang'); if(saved) langSelect.value = saved; })();
+
+    // Load contact draft if any
+    (function(){const draft = JSON.parse(localStorage.getItem('ag_contact_draft')||'null'); if(draft){ if(draft.name) document.getElementById('name').value=draft.name; if(draft.email) document.getElementById('email').value=draft.email; if(draft.message) document.getElementById('message').value=draft.message; }})();
+
+    // Accessibility: close modals on Escape
+    window.addEventListener('keydown', e=>{ if(e.key==='Escape'){ loginModal.style.display='none'; } });
+
+  </script>
+</body>
+</html>
+<!-- asylum.html
+Displaying education.html.  -->
